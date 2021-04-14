@@ -16,7 +16,7 @@ cookie = [
 ]
 # nintendo
 link = sys.argv[3]
-
+price = 100
 # test
 # link = "https://shopee.co.th/%F0%9F%92%A6%E0%B8%81%E0%B8%A5%E0%B8%B4%E0%B9%88%E0%B8%99%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88%F0%9F%92%A6%E0%B8%AA%E0%B9%80%E0%B8%9B%E0%B8%A3%E0%B8%A2%E0%B9%8C%E0%B9%81%E0%B8%AD%E0%B8%A5%E0%B8%81%E0%B8%AD%E0%B8%AE%E0%B8%AD%E0%B8%A5%E0%B9%8C-75-v-v-30-60-110-ml-i.71181048.5629767187"
 
@@ -74,11 +74,11 @@ class CheckOut():
         calPrice = price.replace('฿','').replace(',','')
         print(calPrice)
         # if price < 100
-        if(int(calPrice) < 100):
+        if(int(calPrice) < price):
             print("checkout")
             return self.checkout()
         else:
-            print("price more than 100")
+            print("price more than "+price)
             return self.buy();
 
     def checkout(self):
@@ -109,9 +109,9 @@ class CheckOut():
         lastcheckPrice = browser.find_element_by_xpath('//*[@id="main"]/div/div[2]/div[3]/div[4]/div[2]/div[6]').text
         lastcheckPrice = lastcheckPrice.replace('฿','')
         print(lastcheckPrice)
-        if(int(lastcheckPrice) < 100):
+        if(int(lastcheckPrice) < price):
             print("checkout success")
-            # browser.find_element_by_xpath('//*[@id="main"]/div/div[2]/div[3]/div[4]/div[2]/div[7]/button').click()
+            browser.find_element_by_xpath('//*[@id="main"]/div/div[2]/div[3]/div[4]/div[2]/div[7]/button').click()
         else:
             print("fail checkout")
 
