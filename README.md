@@ -11,3 +11,6 @@ python3 shoppee.py email password url
 ex.
 python3 shoppee.py romeo@gmail.com 123 https://shoppee.co.th/nintendo
 ```
+
+### Stuck at otp
+just login by OTP and try it again
